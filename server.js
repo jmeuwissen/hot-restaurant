@@ -14,15 +14,14 @@ app.use(express.json());
 
 
 
-// Star Wars reservations (DATA)
+// restaurants reservations (DATA)
 // =============================================================
 var reservations = [
     {
-      routeName: "yoda",
-      name: "Yoda",
-      role: "Jedi Master",
-      age: 900,
-      forcePoints: 2000
+      name: "jim",
+      phoneNumber: "555-999-5555",
+      email: 900,
+      id: 1
     },
   ];
   
@@ -50,7 +49,7 @@ var reservations = [
 
 
   // Create New reservations - takes in JSON input
-  app.post("/api/reservations", function(req, res) {
+  app.post("/api/reserve", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newReservation = req.body;
