@@ -72,29 +72,33 @@ fetch("/tables/data")
         .then(function(reservations) {
             let counter = 1;
             reservations.forEach(reservation => {
+                const liEL = document.createElement("li");
+                liEL.classList.add("list-group-item", "mt-4");
+
                 const titleEL = document.createElement("h2");
                 titleEL.innerHTML = "Table #" + counter;
-                document.getElementById("tableList").append(titleEL);
-                document.getElementById("tableList").append(document.createElement("hr"));
+                liEL.append(titleEL);
+                liEL.append(document.createElement("hr"));
                 
 
                 //could replace with for...in
                 const idEL = document.createElement("h2");
                 idEL.innerHTML = reservation.id;
-                document.getElementById("tableList").append(idEL);
+                liEL.append(idEL);
 
                 const nameEL = document.createElement("h2");
                 nameEL.innerHTML = reservation.name;
-                document.getElementById("tableList").append(nameEL);
+                liEL.append(nameEL);
 
                 const emailEL = document.createElement("h2");
                 emailEL.innerHTML = reservation.email;
-                document.getElementById("tableList").append(emailEL);
+                liEL.append(emailEL);
 
                 const phoneNumberEL = document.createElement("h2");
                 phoneNumberEL.innerHTML = reservation.phoneNumber;
-                document.getElementById("tableList").append(phoneNumberEL);
+                liEL.append(phoneNumberEL);
 
+                document.getElementById("tableList").append(liEL)
 
                 counter++;
             });
