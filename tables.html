@@ -66,4 +66,14 @@
         </footer>
 
     </div>
+<script>
+fetch("/api/tables/data")
+        .then((res) => res.json())
+        .then(function(tables) {
+            tables.forEach(table => {
+                
+            });
+        })
+</script>
+    
 </body>

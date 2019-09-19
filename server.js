@@ -46,6 +46,10 @@ var reservations = [
     res.sendFile(path.join(__dirname, "tables.html"));
   });
 
+  
+  app.get("/tables/data", function(req, res) {
+    ;
+  });
 
 
   // Create New reservations - takes in JSON input
