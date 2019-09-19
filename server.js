@@ -20,13 +20,13 @@ var reservations = [
     {
       name: "jim",
       phoneNumber: "555-999-5555",
-      email: 900,
+      email: "email@domain.com",
       id: 1
     },
     {
       name: "jim",
       phoneNumber: "555-999-5555",
-      email: 900,
+      email: "email@domain.com",
       id: 1
     }
   ];
