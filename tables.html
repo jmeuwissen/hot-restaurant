@@ -67,12 +67,38 @@
 
     </div>
 <script>
-fetch("/api/tables/data")
+fetch("/tables/data")
         .then((res) => res.json())
-        .then(function(tables) {
-            tables.forEach(table => {
+        .then(function(reservations) {
+            let counter = 1;
+            reservations.forEach(reservation => {
+                const titleEL = document.createElement("h2");
+                titleEL.innerHTML = "Table #" + counter;
+                document.getElementById("tableList").append(titleEL);
+                document.getElementById("tableList").append(document.createElement("hr"));
                 
+
+                //could replace with for...in
+                const idEL = document.createElement("h2");
+                idEL.innerHTML = reservation.id;
+                document.getElementById("tableList").append(idEL);
+
+                const nameEL = document.createElement("h2");
+                nameEL.innerHTML = reservation.name;
+                document.getElementById("tableList").append(nameEL);
+
+                const emailEL = document.createElement("h2");
+                emailEL.innerHTML = reservation.email;
+                document.getElementById("tableList").append(emailEL);
+
+                const phoneNumberEL = document.createElement("h2");
+                phoneNumberEL.innerHTML = reservation.phoneNumber;
+                document.getElementById("tableList").append(phoneNumberEL);
+
+
+                counter++;
             });
+            console.log(reservations);
         })
 </script>
     

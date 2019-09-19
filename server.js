@@ -23,6 +23,12 @@ var reservations = [
       email: 900,
       id: 1
     },
+    {
+      name: "jim",
+      phoneNumber: "555-999-5555",
+      email: 900,
+      id: 1
+    }
   ];
   
   // Routes
