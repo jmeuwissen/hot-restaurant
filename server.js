@@ -60,7 +60,7 @@ var reservations = [
 
 
   // Create New reservations - takes in JSON input
-  app.post("/api/reserve", function(req, res) {
+  app.post("/reserve", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newReservation = req.body;
@@ -68,8 +68,7 @@ var reservations = [
   
     // Using a RegEx Pattern to remove spaces from newReservation
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
-  
+    
     console.log(newReservation);
   
     reservations.push(newReservation);

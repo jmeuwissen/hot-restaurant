@@ -56,54 +56,66 @@
 
 
         <footer class="footer mt-4">
-            <div class="container">
+            <!-- <div class="container">
                 <p>Control Panel</p>
                 <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a
                         href="/api/waitlist">API
                         Wait List</a>
                 </p>
-            </div>
+            </div> -->
         </footer>
 
     </div>
-<script>
-fetch("/tables/data")
-        .then((res) => res.json())
-        .then(function(reservations) {
-            let counter = 1;
-            reservations.forEach(reservation => {
-                const liEL = document.createElement("li");
-                liEL.classList.add("list-group-item", "mt-4");
+    <script>
+        fetch("/tables/data")
+            .then((res) => res.json())
+            .then(function (reservations) {
+                let counter = 1;
+                reservations.forEach(reservation => {
 
-                const titleEL = document.createElement("h2");
-                titleEL.innerHTML = "Table #" + counter;
-                liEL.append(titleEL);
-                liEL.append(document.createElement("hr"));
-                
+                    
+                        const liEL = document.createElement("li");
+                        liEL.classList.add("list-group-item", "mt-4");
+                        const titleEL = document.createElement("h2");
+                        titleEL.innerHTML = "Table #" +
+                            counter;
+                        liEL.append(titleEL);
+                        liEL.append(document.createElement("hr"));
 
-                //could replace with for...in
-                const idEL = document.createElement("h2");
-                idEL.innerHTML = reservation.id;
-                liEL.append(idEL);
 
-                const nameEL = document.createElement("h2");
-                nameEL.innerHTML = reservation.name;
-                liEL.append(nameEL);
+                        //could replace with for...in
+                        const idEL = document.createElement("h2");
+                        idEL.innerHTML = "ID: " + reservation
+                            .id;
+                        liEL.append(idEL);
 
-                const emailEL = document.createElement("h2");
-                emailEL.innerHTML = reservation.email;
-                liEL.append(emailEL);
+                        const nameEL = document.createElement("h2");
+                        nameEL.innerHTML = "Name: " +
+                            reservation.name;
+                        liEL.append(nameEL);
 
-                const phoneNumberEL = document.createElement("h2");
-                phoneNumberEL.innerHTML = reservation.phoneNumber;
-                liEL.append(phoneNumberEL);
+                        const emailEL = document.createElement("h2");
+                        emailEL.innerHTML = "Email: " +
+                            reservation.email;
+                        liEL.append(emailEL);
 
-                document.getElementById("tableList").append(liEL)
+                        const phoneNumberEL = document.createElement("h2");
+                        phoneNumberEL.innerHTML =
+                            "Phone Number: " + reservation.phoneNumber;
+                        liEL.append(phoneNumberEL);
 
-                counter++;
-            });
-            console.log(reservations);
-        })
-</script>
-    
+                        
+                     
+                    if (counter < 6) {
+                        document.getElementById("tableList").append(liEL);
+                    }
+                    else {
+                        document.getElementById("waitList").append(liEL);
+                    }
+                    counter++;
+                });
+                console.log(reservations);
+            })
+    </script>
+
 </body>
