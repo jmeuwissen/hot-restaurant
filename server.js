@@ -48,7 +48,8 @@ var reservations = [
 
   
   app.get("/tables/data", function(req, res) {
-    ;
+    return res.json(reservations);
+
   });
 
 
